@@ -16,6 +16,9 @@ class Product < ActiveRecord::Base
     end
   end
   
+  #settind a default scope to classify a request to db order by title
+  default_scope :order => 'title'
+
   #validates that the following fields have some date in them
   validates :title, :description, :image_url, :presence => true
 

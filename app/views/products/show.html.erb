@@ -1,25 +1,24 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @product.title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @product.description %>
-</p>
-
-<p>
-  <b>Image url:</b>
-  <%= @product.image_url %>
-</p>
-
-<p>
-  <b>Price:</b>
-  <%= @product.price %>
-</p>
-
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<div class="row">
+  	<div class="twelve columns">
+		<p id="notice"><%= notice %></p>
+		<article>
+			<h3><a href="#"><%= @product.title %></a></h3>
+			<hr>
+			<div class="row">
+				<div class="six columns">
+					<%= image_tag @product.image_url, :width => '200' %>
+				</div>
+				<div class="six columns">
+					<h6><b>Description :</b></h6>
+					<p><%=sanitize @product.description %></p>
+					<p>
+						<b>Price : <%= number_to_currency(@product.price) %></b>
+						<span><%= button_to 'Add to Cart', line_items_path(:product_id => @product) %></span>
+					</p>
+				</div>
+			</div>
+		</article>
+		<%= link_to 'Edit', edit_product_path(@product) %> |
+		<%= link_to 'Back', products_path %>
+	</div>
+</div>
