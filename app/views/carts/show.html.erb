@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="twelve columns">
+	<p id="notice"><%= notice %></p>
+	<h1>Your Cart</h1>
+	<ul>
+		<% for item in @cart.line_items %>
+			<li><%= item.product.title %></li>
+		<% end %>
+	</ul>
+	<%= link_to 'Edit', edit_cart_path(@cart) %> |
+	<%= link_to 'Back', carts_path %>
+	</div>
+</div>
