@@ -61,6 +61,7 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "product is not valid without a unique title" do
+  		#here we gonne use our fixture and get the title define in the fixture named "ruby"
     	product = Product.new(:title => products(:ruby).title,
   					:description	=> "Lorem",
   					:price			=> 1,
