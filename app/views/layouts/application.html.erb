@@ -7,39 +7,48 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<!-- Navigation -->
+    <!-- Navigation -->
 
-  <div class="row">
-    <div class="twelve columns">
+      <div class="row">
+        <div class="twelve columns">
 
-      <ul class="top-bar">
-        <li class="name"><h1><a href="#">Monkey Dojo</a></h1></li>
-        <li class="toggle-topbar"><a href="#"></a></li>
-      </ul>
+          <ul class="top-bar">
 
-    <section>
-      <ul class="left">
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-      </ul>
+            <ul>
+          <li class="name"><h1><a href="#">Monkey Dojo</a></h1></li>
+          <li class="toggle-topbar"><a href="#"></a></li>
+        </ul>
 
-      <ul class="right">
-        <li class="has-dropdown"><a href="#">Link</a></li>
-
-          <ul class="dropdown">
-            <li><a href="#">Dropdown Link</a></li>
-            <li><a href="#">Dropdown Link</a></li>
-            <li><a href="#">Dropdown Link</a></li>
+        <section>
+          <ul class="left">
+            <li><%= link_to 'Home', '/' %></li>
+            <li><a href="#">Books</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
           </ul>
-      </ul>
-    </section>
 
+          <ul class="right">
+            <li class="has-dropdown">
+              <a href="#">Tools</a>
+
+              <ul class="dropdown">
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Profil</a></li>
+                <li><a href="#">My</a></li>
+              </ul>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+    <!-- End Navigation -->
+<div class="row">
+  <div class="twelve columns">
+    <p><%= notice %></p>
+    <%= yield %>
   </div>
 </div>
 
-<!-- End Navigation -->
-<%= yield %>
 
 <!-- Footer -->
 
@@ -48,7 +57,7 @@
         <div class="row">
 
           <div class="six columns">
-            <p>&copy; Copyright no one at all. Go to town.</p>
+            <p>&copy; <a href="http://bemonkey.net">Be Monkey</a>.</p>
           </div>
 
           <div class="six columns">

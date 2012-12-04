@@ -1,81 +1,23 @@
-<div class="row">
-  <div class="twelve columns">
-    
-    <br>
-    <div class="row">
-
-<!-- Side Bar -->
-
-      <div class="four mobile-four columns">
-
-        <%= image_tag '/images/bookmonkey.png' %>
-
-        <div class="hide-for-small panel">
-          <h3>Listing products</h3>
-          <h5 class="subheader">Here is the place to manage all your products</h5>
-        </div>
-
-        <a href="#">
-        <div class="panel callout radius" align="center">
-          <h6>99&nbsp; items in your cart</h6>
-        </div>        
-        </a>
-        <button><%= link_to 'New Product', new_product_path %></button>
-      </div>
-
-  <!-- End Side Bar -->
-
-
-  <!-- Thumbnails -->
-
-      <div class="eight columns">
-        <div class="row">
-          <% @products.each do |product| %>
-            <div class="four mobile-two columns">
-              <%= image_tag product.image_url %>
-
-              <div class="panel">
-                <h5><%= product.title %></h5>
-                <h6 class="subheader" style="display: inline">
-                  <%= number_to_currency(product.price) %>
-                  <%= button_to 'Add to Cart', line_items_path(:product_id => product) %>
-                </h6>
-                <p>
-                  <%= link_to 'Show', product %> | 
-                  <%= link_to 'Edit', edit_product_path(product) %> | 
-                  <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
-                </p>
-              </div>
-            </div>
-          <% end %>
-        </div>
-
-  <!-- End Thumbnails -->
-
-
-  <!-- Managed By -->
-
-          <div class="twelve columns">
-            <div class="panel">
-              <div class="row">
-
-                <div class="two mobile-two columns">
-                  <img src="http://placehold.it/300x300&text=Site Owner">
-                </div>
-
-                <div class="ten mobile-two columns">
-                  <strong>This Site Is Managed By<hr/></strong>
-
-                  Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-  <!-- End Managed By -->
-
-        </div>
-      </div>
-  </div>
-</div>
+<h3>Listing products</h3>
+<h5 class="subheader">Here is the place to manage all your products</h5>
+<button><%= link_to 'New Product', new_product_path %></button>
+<table border="1">
+  <tr>
+    <th>Cover</th>
+    <th>Title</th>
+    <th>Price</th>
+    <th>Actions</th>
+  </tr>
+  <% @products.each do |product| %>
+    <tr>
+        <td><%= image_tag product.image_url %></td>
+        <td><%= product.title %></td>
+        <td><%= number_to_currency(product.price) %></td>
+        <td>
+          <%= link_to 'Show', product %> | 
+          <%= link_to 'Edit', edit_product_path(product) %> | 
+          <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+    </tr>
+  <% end %>
+</table>

@@ -7,16 +7,13 @@
 			<td>Quantity</td>
 			<td>Product Title</td>
 			<td>Price</td>
-			<td>Actions</td>
 		</tr>
-		<%= render(@cart.line_items)%>
+		<%= render(cart.line_items)%>
 		<tr>
 			<td colspan="2">Total</td>
-			<td><%= number_to_currency(@cart.total_price) %></td>
+			<td><%= number_to_currency(cart.total_price) %></td>
 		</tr>
 	</table>
-
-	<%= button_to 'Empty cart', @cart, :method => :delete, :confirm => 'Are you sure?' %>
-	<%= link_to 'Back', '/' %>
+	<%= button_to 'Empty cart', cart, :method => :delete, :confirm => 'Are you sure?' %>
 	</div>
 </div>

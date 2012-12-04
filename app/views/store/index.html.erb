@@ -1,78 +1,72 @@
-<div class="row">
-  <div class="twelve columns">
-    
-    <br>
-    <div class="row">
+  <br>
+  <div class="row">
 
 <!-- Side Bar -->
 
-      <div class="four mobile-four columns">
+    <div class="five mobile-four columns">
 
-        <%= image_tag '/images/bookmonkey.png' %>
+      <%= image_tag('/images/bookmonkey.png', :size => '200x200' )%>
 
-        <div class="hide-for-small panel">
-          <h3>Welcome to the Dojo</h3>
-          <h5 class="subheader">Here is the place where you gonna learn everything you need to became a Ruby Monkey Ninja.</h5>
-        </div>
-
-        <a href="#">
-        <div class="panel callout radius" align="center">
-          <h6>99&nbsp; items in your cart</h6>
-        </div>        
-        </a>
-        <button><%= link_to 'New Product', new_product_path %></button>
+      <div class="hide-for-small panel">
+        <h3>Welcome to the Dojo</h3>
+        <h5 class="subheader">Here is the place where you gonna learn everything you need to became a Ruby Monkey Ninja.</h5>
       </div>
 
-  <!-- End Side Bar -->
+      <a href="#">
+      <div class="panel callout radius" align="center">
+        <%= render @cart %>
+      </div>        
+      </a>
+    </div>
+
+<!-- End Side Bar -->
 
 
-  <!-- Thumbnails -->
+<!-- Thumbnails -->
 
-      <div class="eight columns">
-        <div class="row">
-          <% @products.each do |product| %>
-            <div class="four mobile-two columns" id="product_home">
-              <%= image_tag product.image_url %>
-              <div class="panel">
-                <h4><%= product.title %></h4>
-                <h6 class="subheader">
-                  <%= number_to_currency(product.price) %> |
-                  <%= link_to 'Details', product %>
-                </h6>
-                <p>
-                  <%= button_to 'Add to Cart', line_items_path(:product_id => product) %>
-                </p>
-              </div>
-            </div>
-          <% end %>
-        </div>
-
-  <!-- End Thumbnails -->
-
-
-  <!-- Managed By -->
-
-          <div class="twelve columns">
+    <div class="seven columns">
+      <div class="row">
+        <% @products.each do |product| %>
+          <div class="four mobile-two columns" id="product_home">
+            <%= image_tag product.image_url %>
             <div class="panel">
-              <div class="row">
-
-                <div class="two mobile-two columns">
-                  <img src="http://placehold.it/300x300&text=Site Owner">
-                </div>
-
-                <div class="ten mobile-two columns">
-                  <strong>This Site Is Managed By<hr/></strong>
-
-                  Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis
-                </div>
-
-              </div>
+              <h5><small><%= product.title %></small></h5>
+              <h6 class="subheader">
+                <%= number_to_currency(product.price) %>
+              </h6>
+              <p><%= link_to 'Details', product %></p>
+              <p>
+                <%= button_to 'Add to Cart', line_items_path(:product_id => product), :remote => true %>
+              </p>
             </div>
           </div>
+        <% end %>
+      </div>
 
-  <!-- End Managed By -->
+<!-- End Thumbnails -->
 
+
+<!-- Managed By -->
+
+        <div class="twelve columns">
+          <div class="panel">
+            <div class="row">
+
+              <div class="two mobile-two columns">
+                <%= image_tag('http://bemonkey.net/images/CodeMonkey.jpg') %>
+              </div>
+
+              <div class="ten mobile-two columns">
+                <strong>This Site Was Made By <a href="http://bemonkey.net">Be Monkey</a><hr/></strong>
+
+                Powered by rails 3.2
+              </div>
+
+            </div>
+          </div>
         </div>
+
+<!-- End Managed By -->
+
       </div>
     </div>
-</div>
