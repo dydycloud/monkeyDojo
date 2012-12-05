@@ -1,21 +1,25 @@
 <% unless cart.line_items.empty? %>
+<div class="panel callout radius" align="center">
 <div class="row">
   <div class="twelve columns">
 	<p id="notice"><%= notice %></p>
 	<h4>Your Cart</h4>
-	<table>
+	<table align="center">
 		<tr>
-			<td>Quantity</td>
-			<td>Product Title</td>
-			<td>Price</td>
+			<td class="panel callout radius"><b>Product</b></td>
+			<td class="panel callout radius" ><b>Quantity</b></td>
+			<td class="panel callout radius" colspan="2"><b>Price</b></td>
 		</tr>
 		<%= render(cart.line_items)%>
 		<tr>
-			<td colspan="2">Total</td>
-			<td><%= number_to_currency(cart.total_price) %></td>
+			<td colspan="2" ><big><b>Total</b></big></td>
+			<td><b><%= number_to_currency(cart.total_price) %></b></td>
 		</tr>
 	</table>
-	<%= button_to 'Empty cart', cart, :method => :delete, :confirm => 'Are you sure?' %>
+	<div >
+		<%= button_to 'Empty', cart, :method => :delete, :confirm => 'Are you sure?' %>
+	</div>	
 	</div>
+</div>
 </div>	
 <% end%>

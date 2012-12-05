@@ -55,15 +55,13 @@
                 <h3>Welcome to the Dojo</h3>
                 <h5 class="subheader">Here is the place where you gonna learn everything you need to became a Ruby Monkey Ninja.</h5>
               </div>
-              <a href="#">
-                <div class="panel callout radius" align="center" id="cart" >
-                  <div >
-                    <% if @cart              
-                      render @cart
-                    end %>
-                  </div>
-                </div>        
-              </a>
+              <div id="cart">
+                <% if @cart %>
+                 <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+                    <%= render @cart %>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
         <!-- End Side Bar -->
         <%= yield %>

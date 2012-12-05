@@ -6,9 +6,9 @@
         <% @products.each do |product| %>
           <div class="four mobile-two columns" id="product_home">
             <%= image_tag product.image_url %>
-            <div class="panel">
+            <div class="panel" id="entry">
               <h5><small><%= product.title %></small></h5>
-              <h6 class="subheader">
+              <h6 class="subheader" id="price">
                 <%= number_to_currency(product.price) %>
               </h6>
               <p><%= link_to 'Details', product %></p>
