@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
     <!-- Navigation -->
@@ -15,37 +16,58 @@
           <ul class="top-bar">
 
             <ul>
-          <li class="name"><h1><a href="#">Monkey Dojo</a></h1></li>
-          <li class="toggle-topbar"><a href="#"></a></li>
-        </ul>
-
-        <section>
-          <ul class="left">
-            <li><%= link_to 'Home', '/store/index' %></li>
-            <li><a href="#">Books</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-
-          <ul class="right">
-            <li class="has-dropdown">
-              <a href="#">Tools</a>
-
-              <ul class="dropdown">
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Profil</a></li>
-                <li><a href="#">My</a></li>
+              <li class="name"><h1><a href="#">Monkey Dojo</a></h1></li>
+              <li class="toggle-topbar"><a href="#"></a></li>
+            </ul>
+          
+            <section>
+              <ul class="left">
+                <li><%= link_to 'Home', '/' %></li>
+                <li><a href="#">Books</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
               </ul>
-          </ul>
-        </section>
 
+              <ul class="right">
+                <li class="has-dropdown">
+                  <a href="#">Tools</a>
+
+                  <ul class="dropdown">
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Profil</a></li>
+                    <li><a href="#">My</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </section>
+          </ul>
       </div>
     </div>
     <!-- End Navigation -->
 <div class="row">
   <div class="twelve columns">
     <p><%= notice %></p>
-    <%= yield %>
+      <div class="row">
+        <!-- Side Bar -->
+            <div class="five mobile-four columns">
+              <%= image_tag('/images/bookmonkey.png', :size => '200x200' )%>
+              <div class="hide-for-small panel">
+                <h3>Welcome to the Dojo</h3>
+                <h5 class="subheader">Here is the place where you gonna learn everything you need to became a Ruby Monkey Ninja.</h5>
+              </div>
+              <a href="#">
+                <div class="panel callout radius" align="center" id="cart" >
+                  <div >
+                    <% if @cart              
+                      render @cart
+                    end %>
+                  </div>
+                </div>        
+              </a>
+            </div>
+        <!-- End Side Bar -->
+        <%= yield %>
+      </div>
   </div>
 </div>
 
@@ -62,11 +84,11 @@
 
           <div class="six columns">
             <ul class="link-list right">
-              <li><a href="#">Link 1</a></li>
-              <li><a href="#">Link 2</a></li>
-              <li><a href="#">Link 3</a></li>
-              <li><a href="#">Link 4</a></li>
-            </ul>
+              <li><%= link_to 'Home', '/' %></li>
+              <li><a href="#">Books</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+              </ul>
           </div>
 
         </div>

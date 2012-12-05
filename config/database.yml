@@ -17,9 +17,10 @@ development:
   encoding: unicode
   database: shop_development
   pool: 5
+  port: 5433
   username: bemonkey
   password: epicure
-
+  reconnect: true
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
@@ -43,8 +44,10 @@ test:
   encoding: unicode
   database: shop_test
   pool: 5
+  port: 5433
   username: bemonkey
   password: epicure
+  reconnect: true
 
 production:
   adapter: postgresql

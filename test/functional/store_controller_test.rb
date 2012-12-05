@@ -6,6 +6,6 @@ class StoreControllerTest < ActionController::TestCase
 	    assert_response :success
 	    assert_select '#product_home', 3
 	    assert_select 'h3', 'Welcome to the Dojo'
-	    assert_select 'h4', 'Programing Ruby 1.9'
+	    assert_select 'form'
 	end
 end
