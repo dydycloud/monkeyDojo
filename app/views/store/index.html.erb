@@ -1,7 +1,7 @@
   <br>
 <!-- Thumbnails -->
 
-    <div class="seven columns">
+    <div class="five columns">
       <div class="row">
         <% @products.each do |product| %>
           <div class="four mobile-two columns" id="product_home">
@@ -13,7 +13,7 @@
               </h6>
               <p><%= link_to 'Details', product %></p>
               <p>
-                <%= button_to 'Add to Cart', line_items_path(:product_id => product), :remote => true %>
+                <%= button_to 'Buy', line_items_path(:product_id => product), :remote => true %>
               </p>
             </div>
           </div>

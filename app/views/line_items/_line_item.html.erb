@@ -3,8 +3,11 @@
 <% else %>
 <tr>
 <% end %> 
-	<td><%= line_item.product.title %></td>
-	<td><%= line_item.quantity %></td>
+	<td><%= image_tag(line_item.product.image_url, :width => '100' )%></td>
+	<td style="text-align:center">
+		<%= line_item.quantity %>
+	</td>
 	<td ><%= number_to_currency(line_item.total_price) %></td>
-	<td><%= button_to 'x', line_item, :method => :delete, :confirm => 'Are you sure?' %></td>
+	<td><%= button_to '+', increment_line_item_path(line_item), :method => :put, remote: true%>
+		<%= button_to '-', decrement_line_item_path(line_item), :method => :put, remote: true%><%= button_to 'X', line_item, :method => :delete, :confirm => 'Are you sure?' %></td>
 </tr>
