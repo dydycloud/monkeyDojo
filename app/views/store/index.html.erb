@@ -1,48 +1,22 @@
-  <br>
 <!-- Thumbnails -->
-
-    <div class="five columns">
-      <div class="row">
-        <% @products.each do |product| %>
-          <div class="four mobile-two columns" id="product_home">
-            <%= image_tag product.image_url %>
-            <div class="panel" id="entry">
-              <h5><small><%= product.title %></small></h5>
-              <h6 class="subheader" id="price">
-                <%= number_to_currency(product.price) %>
-              </h6>
-              <p><%= link_to 'Details', product %></p>
-              <p>
-                <%= button_to 'Buy', line_items_path(:product_id => product), :remote => true %>
-              </p>
-            </div>
-          </div>
-        <% end %>
-      </div>
-
-<!-- End Thumbnails -->
-
-
-<!-- Managed By -->
-
-        <div class="twelve columns">
-          <div class="panel">
-            <div class="row">
-
-              <div class="two mobile-two columns">
-                <%= image_tag('http://bemonkey.net/images/CodeMonkey.jpg') %>
-              </div>
-
-              <div class="ten mobile-two columns">
-                <strong>This Site Was Made By <a href="http://bemonkey.net">Be Monkey</a><hr/></strong>
-
-                Powered by rails 3.2
-              </div>
-
-            </div>
-          </div>
+<div class="six columns">
+  <h3>Last Scrolls</h3><hr>
+  <div class="row">
+    <% @products.each do |product| %>
+      <div class="four mobile-two columns" id="product_home">
+        <%= image_tag product.image_url %>
+        <div class="panel" id="entry">
+          <h5><small><%= product.title %></small></h5>
+          <h6 class="subheader" id="price">
+            <%= number_to_currency(product.price) %>
+          </h6>
+          <p><%= link_to 'Details', product %></p>
+          <p>
+            <%= button_to 'Buy', line_items_path(:product_id => product), :remote => true %>
+          </p>
         </div>
-
-<!-- End Managed By -->
-
       </div>
+    <% end %>
+  </div>
+</div>
+<!-- End Thumbnails -->
