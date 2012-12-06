@@ -1,4 +1,7 @@
 Shop::Application.routes.draw do
+  resources :orders
+
+
   get "store/index"
 
   resources :line_items do
@@ -9,7 +12,10 @@ Shop::Application.routes.draw do
   resources :carts
 
 
-  resources :products
+  resources :products do
+    get :who_bought, on: :member
+  end
+
 
   root :to => 'store#index', :as => 'store'
   # The priority is based upon order of creation:

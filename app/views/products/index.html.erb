@@ -2,6 +2,7 @@
 <h3>Listing products</h3>
 <h5 class="subheader">Here is the place to manage all your products</h5>
 <button><%= link_to 'New Product', new_product_path %></button>
+<hr>
 <table border="1">
   <tr>
     <th>Cover</th>
@@ -14,7 +15,7 @@
     <tr>
         <td><%= image_tag product.image_url %></td>
         <td><%= product.title %></td>
-        <td><small><%=raw product.description %></small></td>
+        <td><%=raw truncate(product.description, :length => 200) %></td>
         <td><%= number_to_currency(product.price) %></td>
         <td>
           <%= link_to 'Show', product %>
