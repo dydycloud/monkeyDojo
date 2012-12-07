@@ -1,36 +1,23 @@
 Shop::Application.routes.draw do
-  get "admin" => 'admin#index'
-  
+  get 'admin' => 'admin#index'
   controller :sessions do
-    get "login" => :new
-
-    post "login" => :create
-
-    get 'logout' => :destroy
+    get  'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
   end
-  
-  resources :users
-
-
-  resources :orders
-
-
-  get "store/index"
-
-  resources :line_items do
-    put 'decrement', on: :member
-    put 'increment', on: :member
+  scope '(:locale)' do
+    resources :users
+    resources :orders
+    resources :line_items do
+      post 'decrement', on: :member
+      post 'increment', on: :member
+    end
+    resources :carts
+    resources :products do
+      get :who_bought, on: :member
+    end
+    root to: 'store#index', as: 'store'
   end
-
-  resources :carts
-
-
-  resources :products do
-    get :who_bought, on: :member
-  end
-
-
-  root :to => 'store#index', :as => 'store'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

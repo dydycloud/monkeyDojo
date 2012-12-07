@@ -12,17 +12,18 @@
 					<h6><b>Description :</b></h6>
 					<p><%=sanitize @product.description %></p>
 					<p>
-						<b>Price : <%= number_to_currency(@product.price) %></b>
-						<span><%= button_to 'Buy', line_items_path(:product_id => @product) %></span>
+						<b><%= t('.price_show') %> : <%= number_to_currency(@product.price) %></b>
+						<span><%= button_to t('.buy_show'), line_items_path(:product_id => @product) %></span>
 					</p>
 				</div>
 			</div>
 		</article>
+		<br>
 		<% if session[:user_id] %>
-			<%= link_to 'Edit', edit_product_path(@product) %> |
-			<%= link_to 'Back', products_path %>
+			<%= link_to t('.edit_show'), edit_product_path(@product) %> |
+			<%= link_to t('.back_show'), products_path %>
 		<% else %>
-			<%= link_to 'Back', store_path %>
+			<%= link_to t('.back_show'), store_path %>
 		<% end %>
 	</div>
 </div>

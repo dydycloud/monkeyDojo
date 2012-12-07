@@ -1,24 +1,47 @@
 class ApplicationController < ActionController::Base
+  before_filter :set_i18n_locale_from_params
   protect_from_forgery
   before_filter :authorize
   
+  private
+
+    def current_cart 
+      Cart.find(session[:cart_id])
+    rescue ActiveRecord::RecordNotFound
+      cart = Cart.create
+      session[:cart_id] = cart.id
+      cart
+    end
+
+    # ...
+
   protected
 
     def authorize
-      unless User.find_by_id(session[:user_id])
-        redirect_to login_url, notice: "please log in"
+      if request.format == Mime::HTML 
+        unless User.find_by_id(session[:user_id])
+          redirect_to login_url, notice: "Please log in"
+        end
+      else
+        authenticate_or_request_with_http_basic do |username, password|
+          user = User.find_by_name(username)
+          user && user.authenticate(password)
+        end
       end
     end
 
-  private
-  	def current_cart
-  		#finding the corresponding cart_id in the db
-  		Cart.find(session[:cart_id])
-
-  	#if the cart_id not exist we create an empty cart an put his id in session
-  	rescue ActiveRecord::RecordNotFound
-  		cart = Cart.create
-  		session[:cart_id] = cart.id
-  		cart
-  	end
+    def set_i18n_locale_from_params
+      if params[:locale]
+        if I18n.available_locales.include?(params[:locale].to_sym)
+          I18n.locale = params[:locale]
+        else
+          flash.now[:notice] = 
+            "#{params[:locale]} translation not available"
+          logger.error flash.now[:notice]
+        end
+      end
+    end
+    def default_url_options
+      { locale: I18n.locale }
+    end
 end

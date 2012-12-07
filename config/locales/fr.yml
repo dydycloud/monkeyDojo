@@ -1,0 +1,71 @@
+#START:layout
+#START:store
+#START:carts
+#START:products
+#START:currency
+fr:
+#END:products
+#END:carts
+#END:store
+#END:layout
+  number:
+    currency:
+      format:
+        unit:   	"€"
+        precision:  2
+        separator: 	"."
+        delimiter: 	","
+        format: 	"%n&nbsp;%u"
+#END:currency
+
+#START:layout
+  layouts:
+    application:
+      title:       "Le Dojo Monkey"
+      home:        "Accueil"
+      about:       "A propos"
+      contact:     "Informations"
+      orders: 		"Commandes"
+      products: 	"Produits"
+      users: 		"Utilisateurs"
+      logout: 		"Deconnexion"
+      tool: 		"Admin"
+#END:layout
+#START:store
+  store:
+    index:
+      last:   		"Les Derniers Parchemins"
+      title_html:   "Bienvenue au Dojo"
+      intro_html:   "Ici vous apprendrez tous ce qu'il vous faut pour devenir un Ruby Ninja."
+      buy_html:     "Acheter"
+      more_html: 	"Details..."
+#END:store
+#START:carts
+  carts:
+    cart:
+      checkout:   	"Payer"
+      empty:   		"Vider le panier"
+      title: 		"Votre Panier"
+      product: 		"Produit"
+      quantity:   	"Quantité"
+      price:   		"Prix"
+      total:   		"Totale"
+#END:carts
+#START:products
+  products:
+    show:
+      buy_show:  	"Acheter"
+      back_show:  	"Retour"
+      edit_show:  	"Modifier"
+      price_show: 	"Prix"
+#END:products
+#START:orders
+  orders:
+    form:
+      name_html:   		"Nom"
+      address_html:  	"Adresse"
+      email_html:  		"Adresse Mail"
+      pay_type: 		"Mode de Paiement"
+      pay_prompt_html: 	"Choississez un mode de Paiement"
+      submit: 		"Valider votre achat"
+#END:orders

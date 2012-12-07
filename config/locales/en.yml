@@ -1,5 +1,75 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
+#START:layout
+#START:store
+#START:cart
+#START:products
+#START:orders
+#START:currency
 en:
-  hello: "Hello world"
+#END:orders
+#END:products
+#END:cart
+#END:store
+#END:layout
+  number:
+    currency:
+      format:
+        unit:   	"$"
+        precision:  2
+        separator: 	"."
+        delimiter: 	","
+        format: 	"%u%n"
+#END:currency
+
+#START:layout
+  layouts:
+    application:
+      title:       	"Monkey Dojo"
+      home:        	"Home"
+      about:       	"About"
+      contact:     	"Contact"
+      orders: 		"Orders"
+      products: 	"Products"
+      users: 		"Users"
+      logout: 		"Log out"
+      tool: 		"Admin"
+#END:layout
+
+#START:store
+  store:
+    index:
+      Last:   		"Lasts Scrolls"
+      title_html:   "Welcome to the Dojo"
+      intro_html:   "Here is the place where you gonna learn everything you need to became a Ruby Monkey Ninja."
+      buy_html:     "Buy"
+      more_html: 	"More..."
+#END:store
+
+#START:cart
+  carts:
+    cart:
+      checkout:   	"Checkout"
+      empty:   		"Empty"
+      title: 		"Your Cart"
+      product: 		"Produit"
+      quantity:   	"Quantity"
+      price:   		"Price"
+      total:   		"Total"
+#END:cart
+#START:products
+  products:
+    show:
+      buy_show:   "Buy"
+      back_show:  "Back"
+      edit_show:  "Edit"
+      price_show: "Price"
+#END:products
+#START:orders
+  orders:
+    form:
+      name_html:   		"Name"
+      address_html:  	"Adress"
+      email_html:  		"E-mail"
+      pay_type: 		"Pay with"
+      pay_prompt_html: 	"Select a payment method"
+      submit: 		"Placer Order"
+#END:orders

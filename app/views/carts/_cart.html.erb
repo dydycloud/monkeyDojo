@@ -2,22 +2,22 @@
 <div class="panel callout radius" align="center">
 <div class="row">
   <div class="twelve columns">
-	<h4>Your Cart</h4>
+	<h4><%= t('.title') %></h4>
 	<table align="center">
 		<tr>
-			<td class="panel callout radius"><b>Product</b></td>
-			<td class="panel callout radius" ><b>Quantity</b></td>
-			<td class="panel callout radius" colspan="2"><b>Price</b></td>
+			<td class="panel callout radius"><b><%= t('.product') %></b></td>
+			<td class="panel callout radius" ><b><%= t('.quantity') %></b></td>
+			<td class="panel callout radius" colspan="2"><b><%= t('.price') %></b></td>
 		</tr>
 		<%= render(cart.line_items)%>
 		<tr>
-			<td colspan="2" ><big><b>Total</b></big></td>
+			<td colspan="2" ><big><b><%= t('.total') %></b></big></td>
 			<td><b><%= number_to_currency(cart.total_price) %></b></td>
 		</tr>
 	</table>
 	<div >
-		<%= button_to 'Checkout', new_order_path, :method => :get %>
-		<%= button_to 'Empty', cart, :method => :delete, :confirm => 'Are you sure?' %>
+		<%= button_to t('.checkout'), new_order_path, :method => :get %>
+		<%= button_to t('.empty'), cart, :method => :delete, :confirm => 'Are you sure?' %>
 	</div>	
 	</div>
 </div>

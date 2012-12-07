@@ -2,8 +2,8 @@
 <div class="six mobile-four columns">
   <%= image_tag('/images/bookmonkey.png', :size => '250x250' )%>
   <div class="hide-for-small panel">
-    <h3>Welcome to the Dojo</h3>
-    <h5 class="subheader">Here is the place where you gonna learn everything you need to became a Ruby Monkey Ninja.</h5>
+    <h3><%= t('.title_html')%></h3>
+    <h5 class="subheader"><%= t('.intro_html')%></h5>
   </div>
   <div id="cart">
     <% if @cart %>
@@ -16,7 +16,7 @@
 <!-- End Side Bar -->
 <!-- Thumbnails -->
 <div class="six columns">
-  <h3>Last Scrolls</h3><hr>
+  <h3><%= t('.last') %></h3><hr>
   <div class="row">
     <% @products.each do |product| %>
       <div class="four mobile-two columns" id="product_home">
@@ -26,9 +26,9 @@
           <h6 class="subheader" id="price">
             <%= number_to_currency(product.price) %>
           </h6>
-          <p><%= link_to 'More...', product %></p>
+          <p><%= link_to t('.more_html'), product %></p>
           <p>
-            <%= button_to 'Buy', line_items_path(:product_id => product), :remote => true %>
+            <%= button_to t('.buy_html'), line_items_path(:product_id => product), :remote => true %>
           </p>
         </div>
       </div>
