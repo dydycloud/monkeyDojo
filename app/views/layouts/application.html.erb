@@ -23,22 +23,23 @@
             <section>
               <ul class="left">
                 <li><%= link_to 'Home', '/' %></li>
-                <li><a href="#">Books</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
               </ul>
-
+              <% if session[:user_id] %>
               <ul class="right">
                 <li class="has-dropdown">
                   <a href="#">Tools</a>
 
                   <ul class="dropdown">
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Profil</a></li>
-                    <li><a href="#">My</a></li>
+                    <li><%= link_to 'Orders', orders_path %></li>
+                    <li><%= link_to 'Products', products_path %></li>
+                    <li><%= link_to 'Users', users_path %></li>
+                    <li><%= link_to 'Logout', logout_path, method: :delete %></li>
                   </ul>
                 </li>
               </ul>
+              <% end %>
             </section>
           </ul>
       </div>
@@ -67,7 +68,6 @@
           <div class="six columns">
             <ul class="link-list right">
               <li><%= link_to 'Home', '/' %></li>
-              <li><a href="#">Books</a></li>
               <li><a href="#">About</a></li>
               <li><a href="#">Contact</a></li>
               </ul>

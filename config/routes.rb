@@ -1,12 +1,14 @@
 Shop::Application.routes.draw do
-  get "admin/index"
+  get "admin" => 'admin#index'
+  
+  controller :sessions do
+    get "login" => :new
 
-  get "sessions/new"
+    post "login" => :create
 
-  get "sessions/create"
-
-  get "sessions/destroy"
-
+    get 'logout' => :destroy
+  end
+  
   resources :users
 
 
